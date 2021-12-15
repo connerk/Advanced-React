@@ -14,7 +14,7 @@ const ProductStyles = styled.div`
   gap: 2rem;
   img {
     width: 100%;
-    height: 100%
+    height: 100%;
     object-fit: contain;
   }
 `;
