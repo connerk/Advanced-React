@@ -50,7 +50,6 @@ export default function CreateProduct() {
         e.preventDefault();
         const res = await createProduct();
         clearForm();
-        console.log(res)
         Router.push({ pathname: `/product/${res.data.createProduct.id}` });
       }}
     >
