@@ -39,7 +39,12 @@ export default function UpdateProduct({ id }) {
   const { data, error, loading } = useQuery(SINGLE_PRODUCT_QUERY, {
     variables: { id },
   });
-  const { inputs, handleChange, resetForm, clearForm } = useForm(data?.Product);
+  const { inputs, handleChange, resetForm, clearForm } = useForm({
+    image: data?.Product?.image,
+    name: data?.Product?.name,
+    price: data?.Product?.price,
+    description: data?.Product?.description,
+  });
   const [
     updateProduct,
     { data: updateData, error: updateError, loading: updateLoading },
@@ -57,9 +62,6 @@ export default function UpdateProduct({ id }) {
       onSubmit={async (e) => {
         e.preventDefault();
         const res = await updateProduct().catch(console.error);
-        // clearForm();
-        // console.log(res)
-        // Router.push({ pathname: `/product/${res.data.createProduct.id}` });
       }}
     >
       <DisplayError error={error || updateError} />
