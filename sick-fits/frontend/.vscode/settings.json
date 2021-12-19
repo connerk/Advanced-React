@@ -16,4 +16,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
+  "jest.jestCommandLine": "yarn jest",
 }
